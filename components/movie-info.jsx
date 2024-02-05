@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { API_URL } from "../app/(home)/page";
 import styles from "../styles/movie-info.module.css";
 
@@ -22,6 +23,12 @@ export default async function MovieInfo({ id }) {
         <a href={movie.homepage} target={"_blank"}>
           Homepage &rarr;
         </a>
+        <Link prefetch href={`/movies/${id}/similar`}>
+          {movie.title}과 유사한 영화 추천 받기
+        </Link>
+        <Link prefetch href={`/movies/${id}/provide`}>
+          {movie.title} 보러가기
+        </Link>
       </div>
     </div>
   );
